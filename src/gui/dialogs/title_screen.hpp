@@ -46,6 +46,7 @@ extern bool show_debug_clock_button;
  * cores             | @ref button  |yes      |The button to start managing the cores.
  * language          | @ref button  |yes      |The button to select the game language.
  * credits           | @ref button  |yes      |The button to show Wesnoth's contributors.
+ * changelog         | @ref button  |yes      |The button to show the version's changelog.
  * quit              | @ref button  |yes      |The button to quit Wesnoth.
  * tips              | multi_page   |yes      |A multi_page to hold all tips, when this widget is used the area of the tips doesn't need to be resized when the next or previous button is pressed.
  * tip               | @ref label   |no       |Shows the text of the current tip.

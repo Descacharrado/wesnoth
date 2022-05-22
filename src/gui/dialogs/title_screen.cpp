@@ -252,6 +252,11 @@ void title_screen::init_callbacks()
 	register_button(*this, "about", hotkey::HOTKEY_NULL, std::bind(&game_version::display<>));
 
 	//
+	// Changelog
+	//
+	register_button(win, "changelog", hotkey::HOTKEY_NULL, std::bind(&game_version::display<>));
+
+	//
 	// Campaign
 	//
 	register_button(*this, "campaign", hotkey::TITLE_SCREEN__CAMPAIGN, [this]() {
