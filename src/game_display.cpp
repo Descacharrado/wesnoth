@@ -658,7 +658,6 @@ std::vector<texture> game_display::get_reachmap_images(const map_location& loc) 
 	std::array<visibility, 6> tiles;
 
 	const std::string* image_prefix_ = &game_config::reach_map_prefix;
-	DBG_DP << "Loaded image prefix: " << game_config::reach_map_prefix;
 
 	for(int i = 0; i < 6; ++i) {
 		// look for units adjacent to loc
@@ -705,9 +704,7 @@ std::vector<texture> game_display::get_reachmap_images(const map_location& loc) 
 
 	// Find all the directions overlap occurs from
 	for(int i = 0, cap1 = 0; cap1 != 6; ++cap1) {
-		DBG_DP << "Testing " << get_direction(i);
 		if(tiles[i] != REACH) {
-			DBG_DP << "Direction " << get_direction(i) << " points to an unreachable hex";
 			std::ostringstream stream;
 			std::string suffix;
 			std::string name;
@@ -732,7 +729,6 @@ std::vector<texture> game_display::get_reachmap_images(const map_location& loc) 
 					name = stream.str();
 				}
 			}
-			DBG_DP << "Tried loading image: " << stream.str() + ".png on " << loc;
 
 			if(!name.empty()) {
 				names.push_back(name + suffix);
@@ -746,6 +742,7 @@ std::vector<texture> game_display::get_reachmap_images(const map_location& loc) 
 	std::vector<texture> res;
 
 	for(const std::string& name : names) {
+		DBG_DP << "Pushing: " << name;
 		if(texture tex = image::get_texture(name, image::HEXED)) {
 			res.push_back(std::move(tex));
 		}
